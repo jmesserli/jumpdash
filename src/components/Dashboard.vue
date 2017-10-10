@@ -6,24 +6,24 @@
 </template>
 
 <script>
-import Vue from 'vue'
+  import Vue from 'vue';
 
-export default {
-  name: 'dashboard',
-  beforeRouteEnter (to, from, next) {
-    Vue.http.get('/static/config.json').then((data) => {
-      next(vm => vm.$store.commit('appSets', data.body))
-    })
-  },
-  methods: {
-    selectAppSet (set) {
-      this.$router.push({name: 'envSelector', params: {appSet: set.id}})
+  export default {
+    name: 'dashboard',
+    beforeRouteEnter(to, from, next) {
+      Vue.http.get('/static/config.json').then((data) => {
+        next(vm => vm.$store.commit('appSets', data.body));
+      });
+    },
+    methods: {
+      selectAppSet(set) {
+        this.$router.push({name: 'envSelector', params: {appSet: set.id}});
+      }
+    },
+    computed: {
+      appSets() {
+        return this.$store.state.appSets;
+      }
     }
-  },
-  computed: {
-    appSets () {
-      return this.$store.state.appSets
-    }
-  }
-}
+  };
 </script>

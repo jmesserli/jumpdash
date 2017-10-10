@@ -5,26 +5,23 @@
   </div>
 </template>
 
-<style>
-</style>
-
 <script>
   export default {
     computed: {
-      selectableApps () {
-        let appSetId = this.$route.params.appSet
-        let appSet = this.$store.getters.appSet(appSetId)
+      selectableApps() {
+        let appSetId = this.$route.params.appSet;
+        let appSet = this.$store.getters.appSet(appSetId);
         if (!appSet) {
-          return null
+          return null;
         }
 
-        return appSet.apps
+        return appSet.apps;
       }
     },
     methods: {
-      openApp (app) {
-        this.$router.push({name: 'appOpener', params: {app: app.id}})
+      openApp(app) {
+        this.$router.push({name: 'appOpener', params: {app: app.id}});
       }
     }
-  }
+  };
 </script>

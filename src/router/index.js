@@ -1,11 +1,11 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Dashboard from '@/components/Dashboard'
-import EnvironmentSelector from '@/components/EnvironmentSelector'
-import AppSelector from '@/components/AppSelector'
-import AppOpener from '@/components/AppOpener'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Dashboard from '@/components/Dashboard';
+import EnvironmentSelector from '@/components/EnvironmentSelector';
+import AppSelector from '@/components/AppSelector';
+import AppOpener from '@/components/AppOpener';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -36,4 +36,4 @@ export default new Router({
       ]
     }
   ]
-})
+});

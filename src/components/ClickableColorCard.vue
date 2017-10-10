@@ -1,7 +1,7 @@
 <template>
-    <div :color="color" @click="click">
-      <p class="h3 center">{{ content }}</p>
-    </div>
+  <div :color="color" @click="click">
+    <p class="h3 center">{{ content }}</p>
+  </div>
 </template>
 
 <style scoped>
@@ -16,12 +16,12 @@
 </style>
 
 <script>
-export default {
-  props: ['color', 'content'],
-  methods: {
-    click () {
-      this.$emit('clicked')
+  export default {
+    props: ['color', 'content'],
+    methods: {
+      click() {
+        this.$emit('clicked');
+      }
     }
-  }
-}
+  };
 </script>
