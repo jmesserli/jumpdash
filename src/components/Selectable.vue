@@ -14,7 +14,8 @@
     cursor: pointer;
 
     &.active {
-      text-decoration: underline;
+      background-color: black !important;
+      color: white !important;
     }
   }
 </style>
