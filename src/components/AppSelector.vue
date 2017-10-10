@@ -1,6 +1,7 @@
 <template>
   <div>
     <selectable name="Application" :selecting="selectableApps" @select="openApp"></selectable>
+    <router-view/>
   </div>
 </template>
 
@@ -22,15 +23,7 @@
     },
     methods: {
       openApp (app) {
-        let appSetId = this.$route.params.appSet
-        let envId = this.$route.params.env
-        let appSet = this.$store.getters.appSet(appSetId)
-        let env = this.$store.getters.env(appSetId, envId)
-
-        let template = appSet.urlTemplate.replace('{app}', app.urlPart)
-        template = template.replace('{env}', env.urlPart)
-
-        window.location.href = template
+        this.$router.push({name: 'appOpener', params: {app: app.id}})
       }
     }
   }

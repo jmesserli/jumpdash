@@ -26,6 +26,7 @@ const store = new Vuex.Store({
       if (!appSetId) return null
       return state.appSets.find((appSet) => appSet.id === appSetId)
     },
+    appSetFn: (state, getters) => (appSetId) => () => getters.appSet(appSetId),
     envs: (state, getters) => (appSetId) => {
       let appSet = getters.appSet(appSetId)
       if (!appSet) return null
@@ -37,6 +38,7 @@ const store = new Vuex.Store({
       if (!envs) return null
       return envs.find(environment => environment.id === envId)
     },
+    envFn: (state, getters) => (appSetId, envId) => () => getters.env(appSetId, envId),
     apps: (state, getters) => (appSetId) => {
       let appSet = getters.appSet(appSetId)
       if (!appSet) return null
@@ -44,10 +46,11 @@ const store = new Vuex.Store({
     },
     app: (state, getters) => (appSetId, appId) => {
       if (!appId) return null
-      let apps = getters.apps(appId)
+      let apps = getters.apps(appSetId)
       if (!apps) return null
       return apps.find(app => app.id === appId)
-    }
+    },
+    appFn: (state, getters) => (appSetId, appId) => () => getters.app(appSetId, appId)
   }
 })
 

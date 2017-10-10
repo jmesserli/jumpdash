@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Dashboard from '@/components/Dashboard'
 import EnvironmentSelector from '@/components/EnvironmentSelector'
 import AppSelector from '@/components/AppSelector'
+import AppOpener from '@/components/AppOpener'
 
 Vue.use(Router)
 
@@ -21,7 +22,14 @@ export default new Router({
             {
               path: ':env',
               name: 'appSelector',
-              component: AppSelector
+              component: AppSelector,
+              children: [
+                {
+                  path: ':app',
+                  name: 'appOpener',
+                  component: AppOpener
+                }
+              ]
             }
           ]
         }
