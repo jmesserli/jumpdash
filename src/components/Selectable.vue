@@ -18,6 +18,7 @@
 import ClickableColorCard from '@/components/ClickableColorCard.vue'
 
 export default {
+  name: 'selectable',
   props: ['name', 'selecting'],
   methods: {
     select (item) {
