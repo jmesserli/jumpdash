@@ -1,6 +1,8 @@
-# fiscal-jumpdash
+# Jumpdash
 
-> A quick jump dashboard for Fiscal-IT applications
+> A quick jump dashboard for applications with multiple environments
+
+![Application Image](.github/dashboard.png)
 
 ## Build Setup
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <selectable name="Environment" :selecting="selectableEnvironments" @select="selectEnv"></selectable>
+    <selectable name="Environment" :selecting="selectableEnvironments" :activeId="activeId" @select="selectEnv"></selectable>
     <router-view/>
   </div>
 </template>
@@ -11,6 +11,9 @@
       selectableEnvironments() {
         let appSetId = this.$route.params.appSet;
         return this.$store.getters.envs(appSetId);
+      },
+      activeId() {
+        return this.$route.params.env;
       }
     },
     methods: {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <selectable name="App Set" :selecting="appSets" @select="selectAppSet"></selectable>
+    <selectable name="App Set" :selecting="appSets" :activeId="activeId" @select="selectAppSet"></selectable>
     <router-view/>
   </div>
 </template>
@@ -23,6 +23,9 @@
     computed: {
       appSets() {
         return this.$store.state.appSets;
+      },
+      activeId() {
+        return this.$route.params.appSet;
       }
     }
   };

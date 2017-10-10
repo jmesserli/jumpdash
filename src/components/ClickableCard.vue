@@ -1,5 +1,5 @@
 <template>
-  <div :color="color" @click="click">
+  <div @click="click">
     <p class="h3 center">{{ content }}</p>
   </div>
 </template>
@@ -17,7 +17,7 @@
 
 <script>
   export default {
-    props: ['color', 'content'],
+    props: ['content'],
     methods: {
       click() {
         this.$emit('clicked');
