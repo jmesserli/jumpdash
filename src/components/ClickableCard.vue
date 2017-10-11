@@ -1,19 +1,8 @@
 <template>
-  <div @click="click">
+  <div @click="click" class="bg-aqua navy">
     <p class="h3 center">{{ content }}</p>
   </div>
 </template>
-
-<style scoped>
-  div {
-    background-color: #7FDBFF;
-  }
-
-  div:nth-child(2n) {
-    background-color: #0074D9;
-    color: white;
-  }
-</style>
 
 <script>
   export default {
