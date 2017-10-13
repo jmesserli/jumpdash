@@ -1,64 +1,79 @@
 [
   {
-    "name": "Application Set",
-    "id": "appset",
-    "urlTemplate": "https://www.portal-{env}.somedomain.ch/{app}",
-    "environments": [
+    "name": "Outstanding Cobra",
+    "sets": [
       {
-        "name": "ENV 1",
-        "id": "env-1",
-        "urlPart": "1"
+        "name": "Environments",
+        "items": [
+          {
+            "name": "Larissa (Staging)",
+            "variables": {
+              "env": "staging."
+            }
+          },
+          {
+            "name": "Nereid (Beta)",
+            "variables": {
+              "env": "beta."
+            }
+          },
+          {
+            "name": "Triton (Production)",
+            "variables": {
+              "env": ""
+            }
+          }
+        ]
       },
       {
-        "name": "ENV 2",
-        "id": "env-2",
-        "urlPart": "2"
-      },
-      {
-        "name": "ENV 3",
-        "id": "env-3",
-        "urlPart": "3"
-      }
-    ],
-    "apps": [
-      {
-        "name": "APP 1",
-        "id": "app-1",
-        "urlPart": "app1"
-      },
-      {
-        "name": "APP 2",
-        "id": "app-2",
-        "urlPart": "app2"
+        "name": "Component",
+        "items": [
+          {
+            "name": "Frontend",
+            "url": "https://{env}outcobra.school"
+          },
+          {
+            "name": "Backend Ping",
+            "url": "https://{env}outcobra.school/backend/api/ping"
+          }
+        ]
       }
     ]
   },
   {
-    "name": "OC Team",
-    "id": "outcobra",
-    "urlTemplate": "https://{env}outcobra.school",
-    "environments": [
+    "name": "Testing Set",
+    "sets": [
       {
-        "name": "Larissa (Staging)",
-        "id": "larissa",
-        "urlPart": "staging."
+        "name": "Project",
+        "items": [
+          {
+            "name": "Asdf Project",
+            "variables": {
+              "stashVariable": "PRO/repo/asdf",
+              "jiraVariable": "asdf"
+            }
+          },
+          {
+            "name": "Fdas Project",
+            "variables": {
+              "stashVariable": "PRO/repo/fdas",
+              "jiraVariable": "fdas"
+            }
+          }
+        ]
       },
       {
-        "name": "Nereid (Beta)",
-        "id": "nereid",
-        "urlPart": "beta."
-      },
-      {
-        "name": "Triton (Production)",
-        "id": "triton",
-        "urlPart": ""
-      }
-    ],
-    "apps": [
-      {
-        "name": "Outstanding Cobra",
-        "id": "outcobra",
-        "urlPart": ""
+        "name": "Application",
+        "items": [
+          {
+            "name": "JIRA",
+            "url": "https://jira.somedomain.ch/projects/{jiraVariable}"
+          },
+          {
+            "name": "Stash",
+            "url": "https://stash.somedomain.ch/projects/{stashVariable}"
+          }
+        ]
       }
     ]
   }
