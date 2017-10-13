@@ -42,14 +42,14 @@
         this.selected = this.selected.splice(0, this.depth);
         this.selected.push(selectData.selected);
 
-        if (this.set.sets.length - 1 === this.depth) {
+        if (selectData.selected.url) {
           this.resolveAndOpenUrl();
         }
       },
       resolveAndOpenUrl() {
-        let url = this.selected[this.selected.length - 1].url;
+        let url = this.selected[this.depth].url;
 
-        for (let i = this.selected.length - 1; i >= 0; i--) {
+        for (let i = this.depth; i >= 0; i--) {
           let variables = this.selected[i].variables || {};
           for (let variable of Object.keys(variables)) {
             let regex = new RegExp(`{${variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}}`, 'g');
