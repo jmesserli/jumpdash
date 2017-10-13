@@ -44,6 +44,8 @@
 
         if (selectData.selected.url) {
           this.resolveAndOpenUrl();
+          // Don't show the next level while the browser is loading the page
+          this.depth--;
         }
       },
       resolveAndOpenUrl() {
