@@ -42,14 +42,19 @@
         this.selected = this.selected.splice(0, this.depth);
         this.selected.push(selectData.selected);
 
-        if (selectData.selected.url) {
-          this.resolveAndOpenUrl();
+        let selectable = this.getSelectablesAtDepth(this.depth - 1);
+        selectable = selectable[selectable.length - 1];
+        if (selectData.selected.url || selectable.url) {
+          this.resolveAndOpenUrl(selectable);
           // Don't show the next level while the browser is loading the page
           this.depth--;
         }
       },
-      resolveAndOpenUrl() {
+      resolveAndOpenUrl(selectable) {
         let url = this.selected[this.depth].url;
+        if (!url && selectable.url) {
+          url = selectable.url;
+        }
 
         for (let i = this.depth; i >= 0; i--) {
           let variables = this.selected[i].variables || {};
@@ -64,11 +69,14 @@
       getActiveForDepth(depth) {
         return this.selected[depth];
       },
+      getSelectablesAtDepth(depth) {
+        return (this.set.sets || []).slice(0, depth + 2);
+      },
       generateIdIfAbsent: generateIdIfAbsent
     },
     computed: {
       selectables() {
-        return (this.set.sets || []).slice(0, this.depth + 2);
+        return this.getSelectablesAtDepth(this.depth);
       }
     },
     components: {
